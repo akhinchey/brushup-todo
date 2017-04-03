@@ -4,7 +4,9 @@
 
 <ul>
   <% @list.tasks.each do |task| %>
-    <li><%= task.description %> - Edit - Delete</li>
+    <li><%= task.description %>
+      <%= link_to "Edit", edit_user_list_task_path(@user, @list, task) %>
+      Delete</li>
   <% end %>
 </ul>
 

@@ -1,0 +1,15 @@
+<% if @errors %>
+<ul>
+  <% @errors.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for :task, url: user_list_task_path(@user, @list, @task), method: :patch do |f| %>
+Title:
+<br>
+  <%= f.text_field :description %>
+  <br>
+  <%= f.submit "Update Task" %>
+<% end %>

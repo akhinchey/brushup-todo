@@ -17,6 +17,24 @@ class TasksController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:user_id])
+    @list = List.find(params[:list_id])
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:user_id])
+    @list = List.find(params[:list_id])
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      redirect_to user_list_path(@user, @list)
+    else
+      @errors = @task.errors.full_messages
+      render "edit"
+    end
+  end
+
   private
 
   def task_params
