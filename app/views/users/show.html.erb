@@ -5,7 +5,9 @@
 <% @user.lists.each do |list| %>
   <li><%= link_to list.title, user_list_path(@user, list)  %>
     <%= link_to "Edit title", edit_user_list_path(@user, list) %>
-    Delete
+    <%= form_for :list, url: user_list_path(@user, list), method: :delete do |f| %>
+       <%= f.submit "Delete List" %>
+    <% end %>
   </li>
 <% end %>
 </ul>

@@ -36,6 +36,15 @@ class ListsController < ApplicationController
     end
   end
 
+  def destroy
+    user = User.find(params[:user_id])
+    list = List.find(params[:id])
+    list.destroy
+    redirect_to user_path(user)
+
+  end
+
+
   private
 
   def list_params
