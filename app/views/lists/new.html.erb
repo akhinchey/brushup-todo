@@ -1,0 +1,15 @@
+<% if @errors %>
+<ul>
+  <% @errors.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for :list, url: "/users/#{@user.id}/lists" do |f| %>
+Title:
+<br>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.submit "Create new List" %>
+<% end %>
