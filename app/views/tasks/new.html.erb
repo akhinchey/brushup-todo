@@ -1,0 +1,21 @@
+
+
+<h2>
+  <%= @list.title %>
+</h2>
+
+<% if @errors %>
+<ul>
+  <% @errors.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for :task, url: {action: "create"} do |f| %>
+Task Description:
+<br>
+  <%= f.text_field :description %>
+  <br>
+  <%= f.submit "Create new Task" %>
+<% end %>
