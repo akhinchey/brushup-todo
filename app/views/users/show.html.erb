@@ -1,0 +1,6 @@
+<%= @user.username %>
+<br>
+<br>
+<% @user.lists.each do |list| %>
+  <%= list.title %>
+<% end %>
