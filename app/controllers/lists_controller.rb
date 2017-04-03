@@ -15,9 +15,35 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to user_path(@user)
     else
+      @errors = @list.errors.full_messages
       render "new"
     end
   end
+
+  def edit
+    @user = User.find(params[:user_id])
+    @list = List.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:user_id])
+    @list = List.find(params[:id])
+    if @list.update(list_params)
+      redirect_to user_path(@user)
+    else
+      @errors = @list.errors.full_messages
+      render "edit"
+    end
+  end
+
+  def destroy
+    user = User.find(params[:user_id])
+    list = List.find(params[:id])
+    list.destroy
+    redirect_to user_path(user)
+
+  end
+
 
   private
 

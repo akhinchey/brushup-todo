@@ -6,10 +6,10 @@
 </ul>
 <% end %>
 
-<%= form_for :list, url: {action: "create"} do |f| %>
+<%= form_for :list, url: user_list_path(@user, @list), method: :patch do |f| %>
 Title:
 <br>
   <%= f.text_field :title %>
   <br>
-  <%= f.submit "Create new List" %>
+  <%= f.submit "Update List" %>
 <% end %>
