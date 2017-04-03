@@ -1,0 +1,11 @@
+<h2>
+  <%= @list.title %>
+</h2>
+
+<ul>
+  <% @list.tasks.each do |task| %>
+    <li><%= task.description %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Add task to this list", new_user_list_task_path(@user, @list) %>
